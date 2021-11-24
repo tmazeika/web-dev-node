@@ -1,0 +1,20 @@
+[
+  {
+    "_id": {"$oid": "619db0c560c0a3415a5a4ff1"},
+    "__v": 0,
+    "liked": true,
+    "stats": {
+      "likes": 11
+    },
+    "tweet": "i'm a tweet"
+  },
+  {
+    "_id": {"$oid": "619db0f660c0a3415a5a4ffe"},
+    "__v": 0,
+    "liked": true,
+    "stats": {
+      "likes": 1050
+    },
+    "tweet": "hello world"
+  }
+]

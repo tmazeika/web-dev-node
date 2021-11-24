@@ -1,0 +1,22 @@
+[
+  {
+    "_id": {"$oid": "619b02a6316dcd660d55d894"},
+    "rating": 4.9,
+    "title": "Avatarrr"
+  },
+  {
+    "_id": {"$oid": "619daa309b09cbd0b64c96db"},
+    "title": "New Movie222",
+    "__v": 0
+  },
+  {
+    "_id": {"$oid": "619daae09700a4898dc48f41"},
+    "title": "asdf",
+    "__v": 0
+  },
+  {
+    "_id": {"$oid": "619daaf49700a4898dc48f4a"},
+    "title": "New Movie",
+    "__v": 0
+  }
+]

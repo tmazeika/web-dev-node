@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/webdev');
+
 const express = require('express');
 const app = express();
 app.use(function (req, res, next) {
@@ -17,5 +20,6 @@ app.get('/hello', (req, res) => {
   res.send('Hello World!');
 });
 require('./services/tweeter-service')(app);
+require('./movies/service')(app);
 
 app.listen(process.env.PORT || 4000);

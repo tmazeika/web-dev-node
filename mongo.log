@@ -1,0 +1,102 @@
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> use webdev
+switched to db webdev
+> db.movies.insert({title: 'Aliens', rating: 4.5})
+WriteResult({ "nInserted" : 1 })
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+webdev  0.000GB
+> db.movies.insert({title: 'Terminator', rating: 4.8})
+WriteResult({ "nInserted" : 1 })
+> db.movies.insert({title: 'Avatar', rating: 4.7})
+WriteResult({ "nInserted" : 1 })
+> db.movies.insert({title: 'Dune', rating: 4.9})
+WriteResult({ "nInserted" : 1 })
+> db.movies.find();
+{ "_id" : ObjectId("619b027c316dcd660d55d892"), "title" : "Aliens", "rating" : 4.5 }
+{ "_id" : ObjectId("619b029d316dcd660d55d893"), "title" : "Terminator", "rating" : 4.8 }
+{ "_id" : ObjectId("619b02a6316dcd660d55d894"), "title" : "Avatar", "rating" : 4.7 }
+{ "_id" : ObjectId("619b02ad316dcd660d55d895"), "title" : "Dune", "rating" : 4.9 }
+> db.movies.find({_id: ObjectId("619b027c316dcd660d55d892")})
+{ "_id" : ObjectId("619b027c316dcd660d55d892"), "title" : "Aliens", "rating" : 4.5 }
+> db.movies.find({title: 'Aliens'});
+{ "_id" : ObjectId("619b027c316dcd660d55d892"), "title" : "Aliens", "rating" : 4.5 }
+> db.movies.find().pretty()
+{
+        "_id" : ObjectId("619b027c316dcd660d55d892"),
+        "title" : "Aliens",
+        "rating" : 4.5
+}
+{
+        "_id" : ObjectId("619b029d316dcd660d55d893"),
+        "title" : "Terminator",
+        "rating" : 4.8
+}
+{
+        "_id" : ObjectId("619b02a6316dcd660d55d894"),
+        "title" : "Avatar",
+        "rating" : 4.7
+}
+{
+        "_id" : ObjectId("619b02ad316dcd660d55d895"),
+        "title" : "Dune",
+        "rating" : 4.9
+}
+> db.movies.updateOne({title: 'Avatar'}, {$set:{rating: 4.9}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.movies.updateOne({_id: ObjectId("619b027c316dcd660d55d892")}, {$set:{rating: 4.5}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 0 }
+> db.movies.deleteOne({_id: ObjectId("619b027c316dcd660d55d892")})
+{ "acknowledged" : true, "deletedCount" : 1 }
+> db.movies.find();
+{ "_id" : ObjectId("619b029d316dcd660d55d893"), "title" : "Terminator", "rating" : 4.8 }
+{ "_id" : ObjectId("619b02a6316dcd660d55d894"), "title" : "Avatar", "rating" : 4.9 }
+{ "_id" : ObjectId("619b02ad316dcd660d55d895"), "title" : "Dune", "rating" : 4.9 }
+
+
+>db.tweets.insert({
+": f    "topic": "Web Development",
+JS..    "userName": "ReactJS",
+...     "verified": false,
+e":     "handle": "ReactJS",
+...     "time": "2h",
+...     "title": "React.js is a component based front end library that makes it very easy to build Single Page Applications or SPAs",
+psum...     "tweet": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna al
+iqu     "tweet": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+...     "attachments": {
+...       "video": "unKvMC3Y1kI"
+...     },
+...     "logo-image": "../../../images/react-blue.png",
+...     "avatar-image": "../../../images/react-blue.png",
+...     "stats": {
+...       "comments": 123,
+...       "retweets": 234,
+...       "likes": 345
+...     }});
+WriteResult({ "nInserted" : 1 })
+> db.tweets.find().pretty()
+{
+        "_id" : ObjectId("619dabdc96189fb976b23811"),
+        "topic" : "Web Development",
+        "userName" : "ReactJS",
+        "verified" : false,
+        "handle" : "ReactJS",
+        "time" : "2h",
+        "title" : "React.js is a component based front end library that makes it very easy to build Single Page Applications or SPAs",
+        "tweet" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "attachments" : {
+                "video" : "unKvMC3Y1kI"
+        },
+        "logo-image" : "../../../images/react-blue.png",
+        "avatar-image" : "../../../images/react-blue.png",
+        "stats" : {
+                "comments" : 123,
+                "retweets" : 234,
+                "likes" : 345
+        }
+}

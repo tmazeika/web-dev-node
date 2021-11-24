@@ -1,0 +1,18 @@
+POST http://localhost:4000/api/tweets
+Content-Type: application/json
+
+{
+  "tweet": "hello world",
+  "liked": true,
+  "stats": {
+    "likes": 1050
+  }
+}
+
+###
+
+DELETE http://localhost:4000/api/tweets/619db0b0a0a83bd8ad379003
+
+###
+
+PUT http://localhost:4000/api/tweets/619db0c560c0a3415a5a4ff1/like
